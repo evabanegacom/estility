@@ -22,7 +22,7 @@ const App: React.FC<capitalProps> = ({ name, people, language, currency, flags, 
   const [countryName, setCountryName] = useState<string>("")
   const [country, setCountry] = useState<capitalProps[]>([])
   const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<string>("")
+  const [error, setError] = useState<any>("")
 
   const handleCountry = (e: any) => {
     setCountryName(e.target.value);
@@ -41,8 +41,8 @@ const App: React.FC<capitalProps> = ({ name, people, language, currency, flags, 
         setCountry(response);
       }
     } catch (error: any) {
-      console.error('An error occurred while fetching the country:', error);
-      setError(error.toString());
+      console.error('An error occurred while fetching the country:', error?.message);
+      setError(error?.message);
       // You can handle the error here, e.g. show an error message to the user.
     } finally {
       setLoading(false);
@@ -54,6 +54,7 @@ const App: React.FC<capitalProps> = ({ name, people, language, currency, flags, 
 
   return (
     <div className="row">
+      {error && <p className='error'>Country not found</p>}
       { country.map((country: any, index: number) => (
         <div key={index} className='country-container'>
           <div className='country-flag'>

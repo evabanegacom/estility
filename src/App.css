@@ -39,6 +39,11 @@ form input {
   border-radius: 5px;
 }
 
+.error {
+  color: red;
+  font-weight: 700;
+}
+
 form button {
   background: rgb(30, 81, 30);
   outline: none;

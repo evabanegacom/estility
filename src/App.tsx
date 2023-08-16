@@ -62,7 +62,7 @@ const App: React.FC<capitalProps> = ({ name, people, language, currency, flags, 
         <div className='fw-bold'>{}</div>
         <div>{country?.altSpellings[1]}</div>
         <div className='d-flex'>
-          <div>20.1 million people</div>
+          <div>{Math.round(country?.population/1000000)} million people</div>
         </div>
         <div className='d-flex'>
           {/* <img src={ } alt='people' /> */}
@@ -79,7 +79,7 @@ const App: React.FC<capitalProps> = ({ name, people, language, currency, flags, 
         <div>AFrica</div>
         <div className='d-flex'>
           {/* <img src={ } alt='people' /> */}
-          <div>20.1 million people</div>
+          <div>{Math.round(country?.population/1000000)} million people</div>
         </div>
         <div className='d-flex'>
           {/* <img src={ } alt='people' /> */}

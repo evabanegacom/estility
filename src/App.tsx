@@ -30,6 +30,7 @@ const App: React.FC<capitalProps> = ({ name, people, language, currency, flags, 
   
   const getCountry = async (e: any) => {
     setLoading(true);
+    setError('')
     e.preventDefault();
   
     try {

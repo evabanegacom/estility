@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import countryService, { getCountries } from './services/country-service';
+import countryService from './services/country-service';
 
 interface capitalProps {
   name?: string
@@ -21,26 +21,46 @@ const App: React.FC<capitalProps> = ({ name, people, language, currency, flags, 
 
   const [countryName, setCountryName] = useState<string>("")
   const [country, setCountry] = useState<capitalProps[]>([])
-  const handleCountry = (e:any) => {
-   setCountryName(e.target.value)
-  }
+  const [loading, setLoading] = useState<boolean>(false)
+  const [error, setError] = useState<string>("")
 
-  const getCountry = async (e:any) => {
-    e.preventDefault()
-    const response = await countryService.getCountries(countryName)
-    console.log(response)
-    setCountry(response)
+  const handleCountry = (e: any) => {
+    setCountryName(e.target.value);
   }
+  
+  const getCountry = async (e: any) => {
+    setLoading(true);
+    e.preventDefault();
+  
+    try {
+      const response = await countryService.getCountries(countryName);
+      console.log(response);
+      if (response.length === 0) {
+        alert('No country found.');
+      } else {
+        setCountry(response);
+      }
+    } catch (error: any) {
+      console.error('An error occurred while fetching the country:', error);
+      setError(error.toString());
+      // You can handle the error here, e.g. show an error message to the user.
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+
+  const isValid = loading || countryName.length === 0;
+
   return (
     <div className="row">
-      { country.map((country: any) => (
-        <>
-          <div className='country flag'>
+      { country.map((country: any, index: number) => (
+        <div key={index} className='country-container'>
+          <div className='country-flag'>
         <img src={country?.flags?.png as any} alt='flag' />
         <div className='fw-bold'>{}</div>
         <div>{country?.altSpellings[1]}</div>
         <div className='d-flex'>
-          {/* <img src={ } alt='people' /> */}
           <div>20.1 million people</div>
         </div>
         <div className='d-flex'>
@@ -52,8 +72,8 @@ const App: React.FC<capitalProps> = ({ name, people, language, currency, flags, 
           <div>20.1 million people</div>
         </div>
       </div>
-      <div className='d-flex flex-column col-md-5'>
-        {/* <img src={ } alt='flag' /> */}
+      <div className='country-flag '>
+        <div className='coat-of-arms'><img src={country?.coatOfArms?.svg } alt='flag' /></div>
         <div className='fw-bold'>Nigeria</div>
         <div>AFrica</div>
         <div className='d-flex'>
@@ -69,13 +89,13 @@ const App: React.FC<capitalProps> = ({ name, people, language, currency, flags, 
           <div>20.1 million people</div>
         </div>
       </div>
-        </>
+        </div>
       ))
       
 }
       <form onSubmit={getCountry}>
         <input type='text' onChange={handleCountry} placeholder='Search for a country' />
-        <button>Get details</button>
+        <button type='submit' disabled={isValid}>{loading? 'Sending...' : 'Get details'}</button>
       </form>
       </div>
   );

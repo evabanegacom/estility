@@ -28,6 +28,8 @@
 form {
   align-self: center;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 1rem;
 }
 
@@ -45,11 +47,22 @@ form input {
 }
 
 form button {
-  background: rgb(30, 81, 30);
+  background: rgb(113, 190, 113);
   outline: none;
-  padding: 0.5rem;
-  color: #fff;
+  padding: 0.5rem 1rem;
   border: 1px solid grey;
-  border-radius: 5px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
   cursor: pointer;
+}
+
+.country-name {
+  font-weight: 700;
+}
+
+.start-of-week {
+  background: lightgrey;
+  text-transform: uppercase;
+  border-bottom: 2px solid green;
 }

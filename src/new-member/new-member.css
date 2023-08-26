@@ -1,0 +1,154 @@
+.new-member-container {
+  display: flex;
+  gap: 10px;
+  padding: 1rem;
+  width: max-content;
+  box-shadow: 0 5px 10px 0 rgba(92, 92, 100, 0.25);
+  border-radius: 10px;
+  margin: 5rem;
+}
+
+.new-staff {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #E3E8EE;
+  gap: 20px;
+  padding: 0 0.5rem 0 0;
+}
+
+.new-roles {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.roles-and-permission {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.role-toggle {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #E3E8EE;
+  align-items: center;
+  gap: 10px;
+}
+
+.role-options {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.role-options .options {
+  display: flex;
+  align-items: center;
+  color: #47586E;
+  font-size: 14px;
+}
+
+.options-input {
+  max-width: fit-content;
+}
+
+.options-input input {
+  max-width: 20px;
+}
+
+.options-input input[type="checkbox"]:checked {
+  background: #7975B6;
+}
+
+.role-toggle button {
+  background: none;
+  font-size: 14px;
+}
+
+.staff-form-title {
+  color: #000000;
+  font-weight: 600;
+}
+
+.new-staff button {
+    text-align: start;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 10px 5px;
+  border-radius: 5px;
+}
+
+.staff-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.staff-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.staff-form button {
+  background: #1D0B32;
+  color: #F5F5F5;
+  padding: 7px 0;
+  width: 100px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.staff-form form input {
+    width: 100%;
+  }
+
+  .add-role-type {
+    display: flex;
+    gap: 10px;
+  }
+
+  .role-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .role-form form textarea{
+    border-radius: 10px;
+    border: 1px solid #E3E8EE;
+    padding: 10px;
+    height: 100px;
+    width: 100%;
+  }
+
+  .role-form-text {
+    color: #1D242D;
+    font-size: 14px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .new-member-container {
+      flex-direction: column;
+      gap: 20px;
+      padding: 1rem;
+      max-width: 600px;
+      box-shadow: 0 5px 10px 0 rgba(92, 92, 100, 0.25);
+      border-radius: 10px;
+      margin: 5rem;
+    }
+
+    .new-staff {
+      width: 100%;
+      border-right: none;
+      padding: 0;
+    }
+
+    .new-roles {
+      width: 100%;
+    }
+  }

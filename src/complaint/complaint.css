@@ -1,0 +1,139 @@
+.complaint-form {
+      display: flex;
+        flex-direction: column;
+        margin: 5rem;
+        gap: 10px;
+        max-width: 500px;
+}
+
+.complaint-form .complaint-form-title {
+  font-weight: 600;
+  font-size: 24px;
+  color: #000000;
+}
+
+.complaint-form .complaint-form-reporter {
+  font-size: 14px;
+  color: #000000;
+  font-weight: 600;
+}
+
+.complaint-form .complaint-form-reporter span{
+    font-size: 14px;
+    color: #000000;
+    font-weight: normal;
+  }
+
+  .complaint-form .complaint-description {
+    width: 500px;
+  }
+
+  .complaint-form .complaint-form-div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .complaint-form .complaint-form-status {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    width: 50px;
+    font-size: 12px;
+    align-items: center;
+  }
+
+  .complaint-form .complaint-form-severity {
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .severity-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .severity-container {
+  display: flex;
+  align-items: center;
+}
+
+.circle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  max-width: 20px;
+  max-height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 4px; /* Add spacing between circle and text */
+}
+
+.circle::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  position: absolute;
+}
+
+.low::before {
+  background-color: #16B1FF;
+}
+
+.medium::before {
+  background-color: #FFB400;
+}
+
+.high::before {
+  background-color: #FF4C51;
+}
+
+/* Hide the radio buttons */
+input[type="radio"] {
+  display: none;
+}
+
+/* Style for selected circle */
+input[type="radio"]:checked + label::before {
+  border: 2px solid white;
+}
+
+.severity-text {
+  font-size: 14px; /* Adjust font size as needed */
+}
+
+input[type="radio"]:checked + label::before {
+  border: 2px solid white;
+  box-shadow: 0 0 0 2px green; /* Add a green border */
+}
+
+.complaint-form-button {
+  margin-top: 10px;
+  background: #1D0B32;
+  color: #FFFDFD;
+  padding: 10px 0;
+  min-width: 70%;
+  align-self: center;
+  border-radius: 5px;
+}
+
+.complaint-form-div select {
+  padding: 10px 5px;
+  border-radius: 5px;
+  max-width: 300px;
+  font-size: 14px;
+  border: 1px solid #E3E8EE;
+  outline: none;
+}
